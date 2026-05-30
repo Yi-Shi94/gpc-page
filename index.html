@@ -12,14 +12,14 @@
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
   <meta name="keywords" content="motor control, character animation, humanoid robotics, generative pretraining, reinforcement learning, physics-based animation, transfer learning, motion synthesis">
   <!-- TODO: List all authors -->
-  <meta name="author" content="Yi Shi, FILL_COAUTHORS">
+  <meta name="author" content="Yi Shi, Yifeng Jiang, Chen Tessler, Xue Bin Peng">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
   <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="FILL_INSTITUTION">
+  <meta property="og:site_name" content="Simon Fraser University & NVIDIA">
   <!-- TODO: Same as paper title above -->
   <meta property="og:title" content="GPC: Large-Scale Generative Pretraining for Transferable Motor Control">
   <!-- TODO: Same as description above -->
@@ -55,9 +55,11 @@
   <!-- Academic/Research Specific -->
   <meta name="citation_title" content="GPC: Large-Scale Generative Pretraining for Transferable Motor Control">
   <meta name="citation_author" content="Shi, Yi">
-  <!-- TODO: Add citation_author lines for each co-author -->
+  <meta name="citation_author" content="Jiang, Yifeng">
+  <meta name="citation_author" content="Tessler, Chen">
+  <meta name="citation_author" content="Peng, Xue Bin">
   <meta name="citation_publication_date" content="2026">
-  <meta name="citation_conference_title" content="FILL_VENUE">
+  <meta name="citation_conference_title" content="SIGGRAPH 2026">
   <meta name="citation_pdf_url" content="https://yi-shi94.github.io/gpc-page/static/pdfs/paper.pdf">
   
   <!-- Additional SEO -->
@@ -121,21 +123,39 @@
       {
         "@type": "Person",
         "name": "Yi Shi",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "FILL_INSTITUTION"
-        }
+        "affiliation": [
+          {"@type": "Organization", "name": "Simon Fraser University"},
+          {"@type": "Organization", "name": "NVIDIA"}
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Yifeng Jiang",
+        "affiliation": {"@type": "Organization", "name": "NVIDIA"}
+      },
+      {
+        "@type": "Person",
+        "name": "Chen Tessler",
+        "affiliation": {"@type": "Organization", "name": "NVIDIA"}
+      },
+      {
+        "@type": "Person",
+        "name": "Xue Bin Peng",
+        "affiliation": [
+          {"@type": "Organization", "name": "Simon Fraser University"},
+          {"@type": "Organization", "name": "NVIDIA"}
+        ]
       }
     ],
     "datePublished": "2026-01-01",
     "publisher": {
       "@type": "Organization",
-      "name": "FILL_VENUE"
+      "name": "SIGGRAPH 2026"
     },
     "url": "https://yi-shi94.github.io/gpc-page",
     "image": "https://yi-shi94.github.io/gpc-page/static/images/social_preview.png",
     "keywords": ["motor control", "character animation", "humanoid robotics", "generative pretraining", "reinforcement learning", "physics-based animation", "transfer learning"],
-    "abstract": "FILL_ABSTRACT",
+    "abstract": "Developing controllers capable of completing a wide range of tasks in a natural and life-like manner is a key challenge in enabling practical applications of physics-based character animation. We introduce Generative Pretrained Controllers (GPC), which leverage tokenization and next-token modeling to create general-purpose, reusable generative controllers from large-scale motion datasets. End-to-end reinforcement learning jointly optimizes a motion vocabulary (via Finite Scalar Quantization) and a control policy that maps discrete codes to physics-based controls; a GPT-style autoregressive transformer then models this codebook for next-token control generation. GPC achieves a 99.98% success rate at reproducing a large motion corpus, exhibits emergent perturbation responses and fall recovery, and supports a suite of adaptation techniques for downstream tasks.",
     "citation": "FILL_BIBTEX",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -165,8 +185,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "FILL_INSTITUTION",
-    "url": "https://FILL_INSTITUTION_WEBSITE",
+    "name": "Simon Fraser University & NVIDIA",
+    "url": "https://Simon Fraser University & NVIDIA_WEBSITE",
     "logo": "https://yi-shi94.github.io/gpc-page/static/images/favicon.ico",
     "sameAs": [
       "https://github.com/Yi-Shi94"
@@ -182,58 +202,73 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your related works, or remove the "More Works" dropdown
-             entirely by deleting the .more-works-container block above. -->
-        <a href="#" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>FILL_RELATED_PAPER_TITLE</h5>
-            <p>FILL_RELATED_PAPER_DESCRIPTION</p>
-            <span class="work-venue">FILL_VENUE 2026</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
+<main id="main-content">
+  <section class="hero" style="position: relative; overflow: hidden; min-height: 60vh;">
+    <div class="hero-bg-row" style="position: absolute; top: 0; left: 0; height: 100%; display: flex; align-items: flex-start; z-index: 0; pointer-events: none; opacity: 0.55; animation: hero-bg-scroll 40s linear infinite; animation-delay: -32s; will-change: transform;">
+      <video autoplay muted loop playsinline preload="auto" data-bg-group="0" style="height:100%; width:auto; flex-shrink:0;"></video>
+      <video autoplay muted loop playsinline preload="auto" data-bg-group="1" style="height:100%; width:auto; flex-shrink:0;"></video>
+      <video autoplay muted loop playsinline preload="auto" data-bg-group="2" style="height:100%; width:auto; flex-shrink:0;"></video>
+      <video autoplay muted loop playsinline preload="auto" data-bg-group="0" style="height:100%; width:auto; flex-shrink:0;"></video>
+      <video autoplay muted loop playsinline preload="auto" data-bg-group="1" style="height:100%; width:auto; flex-shrink:0;"></video>
+      <video autoplay muted loop playsinline preload="auto" data-bg-group="2" style="height:100%; width:auto; flex-shrink:0;"></video>
     </div>
-  </div>
-
-  <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
+    <style>
+      @keyframes hero-bg-scroll {
+        from { transform: translateX(-50%); }
+        to   { transform: translateX(0); }
+      }
+    </style>
+    <script>
+      (function () {
+        var POOL_SIZE = 11;
+        var pool = [];
+        for (var i = 0; i < POOL_SIZE; i++) pool.push('static/videos/pool/' + i + '.mp4');
+        var queue = [];
+        function nextSrc() {
+          if (!queue.length) {
+            queue = pool.slice();
+            for (var i = queue.length - 1; i > 0; i--) {
+              var j = Math.floor(Math.random() * (i + 1));
+              var t = queue[i]; queue[i] = queue[j]; queue[j] = t;
+            }
+          }
+          return queue.pop();
+        }
+        function assignGroup(videos) {
+          var src = nextSrc();
+          videos.forEach(function (v) {
+            v.src = src;
+            v.load();
+            v.play().catch(function () {});
+          });
+        }
+        var groups = [0, 1, 2].map(function (g) {
+          return Array.prototype.slice.call(document.querySelectorAll('[data-bg-group="' + g + '"]'));
+        });
+        groups.forEach(assignGroup);
+      })();
+    </script>
+    <div class="hero-body" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">GPC: Large-Scale Generative Pretraining for Transferable Motor Control</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace co-author placeholders with real names + personal links -->
+            <h1 class="title is-1 publication-title" style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.15;">GPC: Large-Scale Generative Pretraining for Transferable Motor Control</h1>
+            <div class="publication-authors" style="font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.5;">
+              <!-- TODO: Replace href="#" with each author's personal website when known -->
               <span class="author-block">
-                <a href="#" target="_blank">Yi Shi</a>,</span>
-                <span class="author-block">
-                  <a href="#" target="_blank">FILL_COAUTHOR_2</a>,</span>
-                  <span class="author-block">
-                    <a href="#" target="_blank">FILL_COAUTHOR_3</a>
-                  </span>
-                  </div>
+                <a href="https://yi-shi94.github.io/" target="_blank">Yi Shi</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a href="https://cs.stanford.edu/~yifengj/" target="_blank">Yifeng Jiang</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="http://chen.tessler.tilda.ws/" target="_blank">Chen Tessler</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://xbpeng.github.io/" target="_blank">Xue Bin Peng</a><sup>1,2</sup>
+              </span>
+            </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">FILL_INSTITUTION<br>FILL_VENUE</span>
-                    <!-- TODO: Uncomment if equal contribution applies, and add <sup>*</sup> to relevant authors above -->
-                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
-                  </div>
+            <div class="publication-authors" style="font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.6;">
+              <span class="author-block"><sup>1</sup>Simon Fraser University &nbsp;&nbsp; <sup>2</sup>NVIDIA<br>SIGGRAPH 2026</span>
+            </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
@@ -248,20 +283,19 @@
                       </a>
                     </span>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
                     <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      <a href="https://youtu.be/3QibCkPAGj0" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fab fa-youtube"></i>
                       </span>
-                      <span>Supplementary</span>
+                      <span>Video</span>
                     </a>
                   </span>
 
                   <!-- TODO: Replace with your GitHub repository URL -->
                   <span class="link-block">
-                    <a href="https://github.com/Yi-Shi94/FILL_CODE_REPO" target="_blank"
+                    <a href="https://github.com/NVlabs/ProtoMotions" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -289,23 +323,22 @@
 </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        FILL_TEASER_CAPTION — a one- or two-sentence pitch for the video above.
-      </h2>
+<!-- Youtube video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/3QibCkPAGj0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End youtube video -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -314,9 +347,8 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
           <p>
-            FILL_ABSTRACT — paste the paper abstract here.
+            Developing controllers capable of completing a wide range of tasks in a natural and life-like manner is a key challenge in enabling practical applications of physics-based character animation. In this work, we introduce Generative Pretrained Controllers (GPC), which leverage tokenization and next-token modeling to create general-purpose, reusable <em>generative</em> controllers from large-scale motion datasets. Our framework utilizes end-to-end reinforcement learning to jointly optimize a &ldquo;motion vocabulary&rdquo;, modeled via Finite Scalar Quantization (FSQ), along with a corresponding control policy that can map the discrete codes to physics-based controls. After the &ldquo;codebook&rdquo; has been learned, the underlying structure of this large vocabulary is modeled by training a GPT-style autoregressive transformer, leading to a powerful generative controller that generates controls for a physically simulated character by performing next-token prediction. Once the generative controller has been trained, we propose a suite of adaptation techniques for finetuning the controller for new downstream tasks. Our proposed framework greatly simplifies the training process compared to previous tokenized methods, and achieves a 99.98% success rate in reproducing a vast corpus of motion clips. The generative controller exhibits a variety of natural emergent behaviors, such as responsive behaviors to perturbations and recovery behaviors after falling. This results in highly robust general purpose controllers for a variety of downstream applications.
           </p>
         </div>
       </div>
@@ -326,122 +358,8 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
 
 
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
 
 
 
@@ -455,12 +373,11 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{shi2026gpc,
+      <pre id="bibtex-code"><code>@inproceedings{shi2026gpc,
   title={GPC: Large-Scale Generative Pretraining for Transferable Motor Control},
-  author={Shi, Yi and FILL_COAUTHORS},
-  journal={FILL_VENUE},
-  year={2026},
-  url={https://yi-shi94.github.io/gpc-page}
+  author={Shi, Yi and Jiang, Yifeng and Tessler, Chen and Peng, Xue Bin},
+  booktitle={SIGGRAPH '26 Conference Proceedings},
+  year={2026}
 }</code></pre>
     </div>
 </section>
