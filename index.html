@@ -454,11 +454,32 @@
             To efficiently adapt a Generative Pretrained Controller (GPC) to new tasks, we introduce <strong>Conditional Low-rank Adaptation (CoLA)</strong>, a <strong>Parameter-Efficient Fine-Tuning (PEFT)</strong> method inspired by DoRA that adds less than 1% of new parameters. This lightweight adaptation is driven by a two-stage pipeline:
           </p>
           <ol>
-            <li><strong>Supervised Fine-Tuning (SFT):</strong> When example motions are available, SFT acts as an initial guide by minimizing cross-entropy loss over discrete latent codes. This biases the model toward selecting task-appropriate skills, preventing inefficient exploration through its vast pretrained capabilities.</li>
+            <li><strong>Supervised Fine-Tuning (SFT) [Optional]:</strong> When example motions are available, and the user wants to utilize the skill provided by the example, SFT can act as an initial guide by minimizing cross-entropy loss over discrete latent codes. This biases the model toward selecting task-appropriate skills, preventing inefficient exploration through its vast pretrained capabilities.</li>
             <li><strong>Reinforcement Learning Fine-Tuning (RLFT):</strong> Building on the SFT initialization, RLFT uses Proximal Policy Optimization (PPO) to optimize task-specific reward functions. This stage refines the model to reliably compose and execute skills for the target task, utilizing nucleus sampling to preserve the natural behaviors of the original pretrained model.</li>
           </ol>
         </div>
-        <!-- TODO: Add CoLA / PEFT video(s) here when ready -->
+        <h3 class="title is-4" style="margin-top: 2rem;">RLFT-Only Adaptation</h3>
+        <div id="rlft-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/steering.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/target.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/traj.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/traj_force.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/terrain_gap_2x2.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/terrain_gap_2x2_interactive.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/terrain_gap_random_interactive.mp4" type="video/mp4"></video></div>
+        </div>
+
+        <h3 class="title is-4" style="margin-top: 2rem;">SFT + RLFT Adaptation</h3>
+        <div id="sft-rlft-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/sft%2Brlft/_web/task_target_sft_crouch.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/sft%2Brlft/_web/traj2.mp4" type="video/mp4"></video></div>
+        </div>
+
+        <h3 class="title is-4" style="margin-top: 2rem;">RLFT with External Force</h3>
+        <div id="rlft-force-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft_force/_web/traj_force.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft_force/_web/traj_force.mp4" type="video/mp4"></video></div>
+        </div>
       </div>
     </div>
   </div>

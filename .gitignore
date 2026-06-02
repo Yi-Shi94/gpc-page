@@ -3,3 +3,6 @@ static/videos/background*.mp4
 static/videos/skill_quant/*.mp4
 static/videos/gen_controller/*.mp4
 static/videos/gen_controller_pert/*.mp4
+static/videos/peft/rlft/*.mp4
+static/videos/peft/sft+rlft/*.mp4
+static/videos/peft/rlft_force/*.mp4
