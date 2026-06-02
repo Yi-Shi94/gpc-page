@@ -60,7 +60,7 @@
   <meta name="citation_author" content="Peng, Xue Bin">
   <meta name="citation_publication_date" content="2026">
   <meta name="citation_conference_title" content="SIGGRAPH 2026">
-  <meta name="citation_pdf_url" content="https://yi-shi94.github.io/gpc-page/static/pdfs/paper.pdf">
+  <meta name="citation_pdf_url" content="https://yi-shi94.github.io/gpc-page/static/pdfs/Generative_Pretrained_Controllers.pdf">
   
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
@@ -102,7 +102,7 @@
   </noscript>
   
   <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
   
   <!-- MathJax for inline equations -->
   <script>
@@ -212,20 +212,54 @@
   </button>
 
 <main id="main-content">
-  <section class="hero" style="position: relative; overflow: hidden; min-height: 60vh;">
-    <div class="hero-bg-row" style="position: absolute; top: 0; left: 0; height: 100%; display: flex; align-items: flex-start; z-index: 0; pointer-events: none; opacity: 0.55; animation: hero-bg-scroll 40s linear infinite; animation-delay: -32s; will-change: transform;">
-      <video autoplay muted loop playsinline preload="auto" data-bg-group="0" style="height:100%; width:auto; flex-shrink:0;"></video>
-      <video autoplay muted loop playsinline preload="auto" data-bg-group="1" style="height:100%; width:auto; flex-shrink:0;"></video>
-      <video autoplay muted loop playsinline preload="auto" data-bg-group="2" style="height:100%; width:auto; flex-shrink:0;"></video>
-      <video autoplay muted loop playsinline preload="auto" data-bg-group="0" style="height:100%; width:auto; flex-shrink:0;"></video>
-      <video autoplay muted loop playsinline preload="auto" data-bg-group="1" style="height:100%; width:auto; flex-shrink:0;"></video>
-      <video autoplay muted loop playsinline preload="auto" data-bg-group="2" style="height:100%; width:auto; flex-shrink:0;"></video>
+  <section class="hero" style="position: relative; overflow: hidden; min-height: 45vh;">
+    <div class="hero-bg-stack" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; opacity: 0.6; filter: contrast(105%);">
+      <div style="position: absolute; inset: 0; clip-path: polygon(0% 0%, 100% 0%, 100% 35%, 0% 65%); overflow: hidden; ">
+        <div class="hero-bg-row" style="position: absolute; top: 0; left: 0; height: 100%; display: flex; align-items: flex-start; will-change: transform; animation: hero-bg-scroll-right 40s linear infinite; animation-delay: -32s;">
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="0" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="1" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="2" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="3" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="9" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="0" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="1" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="2" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="3" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="9" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+        </div>
+      </div>
+      <div style="position: absolute; inset: 0; clip-path: polygon(0% 65%, 100% 35%, 100% 100%, 0% 100%); overflow: hidden; ">
+        <div class="hero-bg-row" style="position: absolute; top: 0; left: 0; height: 100%; display: flex; align-items: flex-end; will-change: transform; animation: hero-bg-scroll-left 40s linear infinite; animation-delay: -32s;">
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="4" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="5" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="6" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="7" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="8" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="4" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="5" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="6" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="7" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+          <video autoplay muted loop playsinline preload="auto" data-bg-group="8" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
+        </div>
+      </div>
     </div>
     <style>
-      @keyframes hero-bg-scroll {
+      @keyframes hero-bg-scroll-right {
         from { transform: translateX(-50%); }
         to   { transform: translateX(0); }
       }
+      @keyframes hero-bg-scroll-left {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+      .hero-bg-row video {
+        clip-path: polygon(var(--lt, 0vh) 0%, calc(100% - var(--rt, 0vh)) 0%, calc(100% - var(--rb, 0vh)) 100%, var(--lb, 0vh) 100%);
+      }
+      /* Section font-size bump */
+      main section h2.title.is-3 { font-size: clamp(2rem, 3vw, 2.75rem) !important; }
+      main section h3.title.is-4 { font-size: clamp(1.2rem, 2.vw, 1.8rem) !important; }
+      main section .content p,
+      main section .content li { font-size: clamp(1.1rem, 1.4vw, 1.3rem); line-height: 1.6; }
     </style>
     <script>
       (function () {
@@ -251,40 +285,72 @@
             v.play().catch(function () {});
           });
         }
-        var groups = [0, 1, 2].map(function (g) {
+        var allWithGroup = document.querySelectorAll('[data-bg-group]');
+        var seen = {};
+        Array.prototype.forEach.call(allWithGroup, function (n) { seen[n.dataset.bgGroup] = true; });
+        var groups = Object.keys(seen).map(function (g) {
           return Array.prototype.slice.call(document.querySelectorAll('[data-bg-group="' + g + '"]'));
         });
         groups.forEach(assignGroup);
+
+        // Random slanted boundaries between panes (mirrored across marquee duplicates)
+        // Each boundary has an amount (vh) and a direction (+/- = tilt right / tilt left)
+        document.querySelectorAll('.hero-bg-row').forEach(function (row) {
+          var vids = Array.prototype.slice.call(row.querySelectorAll('video'));
+          var n = vids.length;
+          if (!n) return;
+          var half = Math.floor(n / 2);
+          var bnd = [];
+          for (var i = 0; i < half; i++) {
+            bnd.push({ amt: 2 + Math.random() * 4, dir: Math.random() < 0.5 ? 1 : -1 });
+          }
+          var all = bnd.concat(bnd);
+          for (var i = 0; i < n; i++) {
+            var rb = all[i];                     // boundary to the right of pane i
+            var lb = all[(i - 1 + n) % n];       // boundary to the left of pane i
+            // For boundary with dir +: pane's right side has rt=0, rb=amt; next pane has lt=amt, lb=0
+            // For boundary with dir -: pane's right side has rt=amt, rb=0; next pane has lt=0, lb=amt
+            var lt = (lb.dir > 0) ? lb.amt : 0;
+            var lbX = (lb.dir > 0) ? 0 : lb.amt;
+            var rt = (rb.dir > 0) ? 0 : rb.amt;
+            var rbX = (rb.dir > 0) ? rb.amt : 0;
+            vids[i].style.setProperty('--lt', lt + 'vh');
+            vids[i].style.setProperty('--lb', lbX + 'vh');
+            vids[i].style.setProperty('--rt', rt + 'vh');
+            vids[i].style.setProperty('--rb', rbX + 'vh');
+            vids[i].style.marginRight = (-rb.amt) + 'vh';
+          }
+        });
       })();
     </script>
     <div class="hero-body" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
-      <div class="container is-max-desktop">
+      <div class="container is-max-widescreen">
         <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title" style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.15;">GPC: Large-Scale Generative Pretraining for Transferable Motor Control</h1>
-            <div class="publication-authors" style="font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.5;">
+          <div class="column is-11 has-text-centered" style="background: rgba(255, 255, 255, 0.25); -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%); border-radius: 18px; padding: 2.5rem 2rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); border: 1px solid rgba(255, 255, 255, 0.5);">
+            <h1 class="title is-1 publication-title" style="font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.15;"><span style="font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 0.04em; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #db2777 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: 0.05em;">GPC</span>: Large-Scale Generative Pretraining for Transferable Motor Control</h1>
+            <div class="publication-authors" style="font-size: clamp(1.3rem, 2.2vw, 1.75rem); line-height: 1.5;">
               <!-- TODO: Replace href="#" with each author's personal website when known -->
               <span class="author-block">
                 <a href="https://yi-shi94.github.io/" target="_blank">Yi Shi</a><sup>1,2</sup>,</span>
               <span class="author-block">
-                <a href="https://cs.stanford.edu/~yifengj/" target="_blank">Yifeng Jiang</a><sup>2</sup>,</span>
+                <a href="https://cs.stanford.edu/~yifengj/" target="_blank">Yifeng Jiang</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="http://chen.tessler.tilda.ws/" target="_blank">Chen Tessler</a><sup>2</sup>,</span>
+                <a href="http://chen.tessler.tilda.ws/" target="_blank">Chen Tessler</a><sup>1</sup>,</span>
               <span class="author-block">
                 <a href="https://xbpeng.github.io/" target="_blank">Xue Bin Peng</a><sup>1,2</sup>
               </span>
             </div>
 
-            <div class="publication-authors" style="font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.6;">
-              <span class="author-block"><sup>1</sup>Simon Fraser University &nbsp;&nbsp; <sup>2</sup>NVIDIA<br>SIGGRAPH 2026</span>
+            <div class="publication-authors" style="font-size: clamp(1.15rem, 1.8vw, 1.5rem); line-height: 1.6;">
+              <span class="author-block"><sup>1</sup>NVIDIA &nbsp;&nbsp; <sup>2</sup>Simon Fraser University<br>SIGGRAPH 2026</span>
             </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
                          <!-- TODO: Update with your arXiv paper ID -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/FILL_ARXIV_ID.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
+                        <a href="static/pdfs/Generative_Pretrained_Controllers.pdf" target="_blank"
+                        class="external-link button is-large is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
                         </span>
@@ -294,7 +360,7 @@
 
                     <span class="link-block">
                       <a href="https://youtu.be/3QibCkPAGj0" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                      class="external-link button is-large is-rounded is-dark">
                       <span class="icon">
                         <i class="fab fa-youtube"></i>
                       </span>
@@ -305,7 +371,7 @@
                   <!-- TODO: Replace with your GitHub repository URL -->
                   <span class="link-block">
                     <a href="https://github.com/NVlabs/ProtoMotions" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
+                    class="external-link button is-large is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -316,7 +382,7 @@
                 <!-- TODO: Update with your arXiv paper ID -->
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/FILL_ARXIV_ID" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
+                  class="external-link button is-large is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
@@ -337,7 +403,7 @@
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+        <div class="column is-10">
 
           <div class="publication-video">
             <iframe src="https://www.youtube.com/embed/3QibCkPAGj0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -351,9 +417,9 @@
 
 <!-- Overview -->
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-10">
         <h2 class="title is-3">Overview</h2>
         <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
           <source src="static/videos/overview.mp4" type="video/mp4">
@@ -371,10 +437,20 @@
 
 <!-- Skill Quantization -->
 <section class="section hero is-light">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-10">
         <h2 class="title is-3">Skill Quantization</h2>
+        <div class="section-highlights" style="display: flex; gap: 0.75rem; flex-wrap: nowrap; justify-content: center; margin: 0.5rem 0 1.5rem;">
+          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">1</span>
+            <span>Scales up to a <strong>600&nbsp;h</strong> dataset with <strong>99.98%</strong> success rate</span>
+          </div>
+          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">2</span>
+            <span>Simple <strong>end-to-end</strong> training with PPO</span>
+          </div>
+        </div>
         <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
           <source src="static/videos/skill_quant.mp4" type="video/mp4">
         </video>
@@ -406,10 +482,20 @@
 
 <!-- Generative Controller -->
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-10">
         <h2 class="title is-3">Generative Controller</h2>
+        <div class="section-highlights" style="display: flex; gap: 0.75rem; flex-wrap: nowrap; justify-content: center; margin: 0.5rem 0 1.5rem;">
+          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">1</span>
+            <span><strong>Robust</strong> unconditional generation across <strong>diverse skills</strong></span>
+          </div>
+          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">2</span>
+            <span><strong>Emergent human-like responses</strong> to external perturbations</span>
+          </div>
+        </div>
         <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
           <source src="static/videos/gen_controller.mp4" type="video/mp4">
         </video>
@@ -442,9 +528,9 @@
 
 <!-- PEFT / CoLA -->
 <section class="section hero is-light">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-10">
         <h2 class="title is-3">Task Adaptation</h2>
         <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
           <source src="static/videos/peft.mp4" type="video/mp4">
@@ -489,9 +575,9 @@
 
 <!-- Acknowledgments -->
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-10">
         <h2 class="title is-3">Acknowledgments</h2>
         <div class="content has-text-justified">
           <p>We thank Yuxuan Mu, Ziyu Zhang, Dun Yang, Kaifeng Zhao, Sunmin Lee, Haotian Zhang, and Davis Rempe for their support and insightful discussions.</p>
@@ -508,7 +594,7 @@
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
+    <div class="container is-max-widescreen content">
       <div class="bibtex-header">
         <h2 class="title">BibTeX</h2>
         <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
@@ -516,7 +602,7 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@inproceedings{shi2026gpc,
+      <pre id="bibtex-code" style="font-size: clamp(0.95rem, 1.35vw, 1.2rem) !important; line-height: 1.5 !important;"><code>@inproceedings{shi2026gpc,
   title={GPC: Large-Scale Generative Pretraining for Transferable Motor Control},
   author={Shi, Yi and Jiang, Yifeng and Tessler, Chen and Peng, Xue Bin},
   booktitle={SIGGRAPH '26 Conference Proceedings},
