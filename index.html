@@ -104,6 +104,15 @@
   <!-- Fonts - Optimized loading -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <!-- MathJax for inline equations -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <!-- Defer non-critical JavaScript -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
@@ -350,7 +359,9 @@
           <source src="static/videos/overview.mp4" type="video/mp4">
         </video>
         <div class="content has-text-justified" style="margin-top: 1rem;">
-          <p>We present <strong>Generative Pretrained Controllers (GPC)</strong>, which model a wide range of motor skills through next-token prediction with a learned discrete representation of behaviors. GPC can be trained on large-scale motion datasets and then adapted to downstream tasks, while retaining the naturalistic behaviors acquired by the pretrained model.</p>
+          <p>
+            <strong>GPC</strong> is a framework for training generative controllers on large-scale motion datasets. The framework consists of three stages. In the first stage, <strong>Skill Quantization</strong>, we construct a discrete latent representation of skills using Finite Scalar Quantization (FSQ). The latent codes are optimized directly with end-to-end RL, providing a robust foundation for subsequent generative controller training and downstream task adaptation. In the second stage, <strong>Generative Controller</strong> Training, we train a generative controller that models the distribution of discrete skill tokens using a transformer decoder. Finally, we introduce CoLA, a parameter-efficient fine-tuning (<strong>PEFT</strong>) procedure that can adapt the pretrained generative controller to a wide range of downstream control tasks using only a small number of additional parameters, while preserving the diversity and naturalness of the pretrained controller.
+          </p>
         </div>
       </div>
     </div>
@@ -358,22 +369,101 @@
 </section>
 <!-- End overview -->
 
-<!-- Paper abstract -->
+<!-- Skill Quantization -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <h2 class="title is-3">Skill Quantization</h2>
+        <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
+          <source src="static/videos/skill_quant.mp4" type="video/mp4">
+        </video>
+        <div class="content has-text-justified" style="margin-top: 1rem;">
           <p>
-            Developing controllers capable of completing a wide range of tasks in a natural and life-like manner is a key challenge in enabling practical applications of physics-based character animation. In this work, we introduce Generative Pretrained Controllers (GPC), which leverage tokenization and next-token modeling to create general-purpose, reusable <em>generative</em> controllers from large-scale motion datasets. Our framework utilizes end-to-end reinforcement learning to jointly optimize a &ldquo;motion vocabulary&rdquo;, modeled via Finite Scalar Quantization (FSQ), along with a corresponding control policy that can map the discrete codes to physics-based controls. After the &ldquo;codebook&rdquo; has been learned, the underlying structure of this large vocabulary is modeled by training a GPT-style autoregressive transformer, leading to a powerful generative controller that generates controls for a physically simulated character by performing next-token prediction. Once the generative controller has been trained, we propose a suite of adaptation techniques for finetuning the controller for new downstream tasks. Our proposed framework greatly simplifies the training process compared to previous tokenized methods, and achieves a 99.98% success rate in reproducing a vast corpus of motion clips. The generative controller exhibits a variety of natural emergent behaviors, such as responsive behaviors to perturbations and recovery behaviors after falling. This results in highly robust general purpose controllers for a variety of downstream applications.
+            Training GPC requires a discrete latent representation of motor skills. This is obtained by training an FSQ motion-tracking controller, where the discrete codes are optimized via end-to-end RL to model different skills. We incorporate FSQ-based quantization into the policy through an encoder&ndash;decoder architecture. The encoder maps a sequence of target states to a continuous latent vector. Each dimension of this latent is then independently quantized using FSQ into $L$ fixed scalar levels:
+         This look-up-free quantization defines an implicit discrete codebook of size $L^d$, alleviating the need to learn an explicit codebook, as done in VQ-VAEs.
           </p>
+        </div>
+
+        <h3 class="title is-4" style="margin-top: 2rem;">Results Reproduced by the FSQ Tracking Controller</h3>
+        <div id="skill-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/acrobat.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/cartwheel.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/flip1.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/flip2.mp4" type="video/mp4"></video></div>
+        </div>
+
+        <h3 class="title is-4" style="margin-top: 2rem;">Comparison with Other Methods</h3>
+        <div id="skill-compare-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/comp.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/comp1.mp4" type="video/mp4"></video></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
+<!-- End skill quantization -->
+
+<!-- Generative Controller -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Generative Controller</h2>
+        <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
+          <source src="static/videos/gen_controller.mp4" type="video/mp4">
+        </video>
+        <div class="content has-text-justified" style="margin-top: 1rem;">
+          <p>
+            To model the skill representation at each time step, the joint conditional distribution of the token sequence is captured autoregressively using a GPT-style transformer decoder with causal self-attention. This architecture ensures that each token is generated based on the character's state and all previously generated tokens. During inference, tokens are autoregressively sampled via nucleus (top-$p$) sampling applied to the softmax-normalized logits, which restricts choices to the most likely tokens to mitigate low-probability outliers while preserving diverse behavior generation. Crucially, the resulting learned policy is robust and capable of learning recovery skills without explicit training procedures. 
+          </p>
+        </div>
+
+        <h3 class="title is-4" style="margin-top: 2rem;">Unconditional Sampling</h3>
+        <div id="uncond-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller/_web/amass_1.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller/_web/bones_1.mp4" type="video/mp4"></video></div>
+        </div>
+
+        <h3 class="title is-4" style="margin-top: 2rem;">Unconditional Sampling Under Perturbation</h3>
+        <div id="pert-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller_pert/_web/amass_force_small.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller_pert/_web/amass_large.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller_pert/_web/amass_small1.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller_pert/_web/bones1.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller_pert/_web/bones2.mp4" type="video/mp4"></video></div>
+          <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller_pert/_web/lafan.mp4" type="video/mp4"></video></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End generative controller -->
+
+<!-- PEFT / CoLA -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Task Adaptation</h2>
+        <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
+          <source src="static/videos/peft.mp4" type="video/mp4">
+        </video>
+        <div class="content has-text-justified" style="margin-top: 1rem;">
+          <p>
+            To efficiently adapt a Generative Pretrained Controller (GPC) to new tasks, we introduce <strong>Conditional Low-rank Adaptation (CoLA)</strong>, a <strong>Parameter-Efficient Fine-Tuning (PEFT)</strong> method inspired by DoRA that adds less than 1% of new parameters. This lightweight adaptation is driven by a two-stage pipeline:
+          </p>
+          <ol>
+            <li><strong>Supervised Fine-Tuning (SFT):</strong> When example motions are available, SFT acts as an initial guide by minimizing cross-entropy loss over discrete latent codes. This biases the model toward selecting task-appropriate skills, preventing inefficient exploration through its vast pretrained capabilities.</li>
+            <li><strong>Reinforcement Learning Fine-Tuning (RLFT):</strong> Building on the SFT initialization, RLFT uses Proximal Policy Optimization (PPO) to optimize task-specific reward functions. This stage refines the model to reliably compose and execute skills for the target task, utilizing nucleus sampling to preserve the natural behaviors of the original pretrained model.</li>
+          </ol>
+        </div>
+        <!-- TODO: Add CoLA / PEFT video(s) here when ready -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End PEFT -->
 
 
 

@@ -1,2 +1,5 @@
 static/videos/out.mp4
 static/videos/background*.mp4
+static/videos/skill_quant/*.mp4
+static/videos/gen_controller/*.mp4
+static/videos/gen_controller_pert/*.mp4

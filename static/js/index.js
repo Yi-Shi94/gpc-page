@@ -127,16 +127,29 @@ $(document).ready(function() {
 		slidesToShow: 1,
 		loop: true,
 		infinite: true,
-		autoplay: true,
-		autoplaySpeed: 5000,
+		autoplay: false,
     }
 
 	// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
-	
+
     bulmaSlider.attach();
-    
+
     // Setup video autoplay for carousel
     setupVideoCarouselAutoplay();
 
+    // Advance each carousel when its current video finishes playing
+    if (carousels && carousels.length) {
+        carousels.forEach(function(carousel) {
+            var root = carousel.element || carousel.container || carousel.node;
+            if (!root) return;
+            root.querySelectorAll('video').forEach(function(v) {
+                v.addEventListener('ended', function() {
+                    // Restart from beginning next time this slide returns
+                    try { v.currentTime = 0; } catch (e) {}
+                    if (typeof carousel.next === 'function') carousel.next();
+                });
+            });
+        });
+    }
 })
