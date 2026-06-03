@@ -214,7 +214,7 @@
 <main id="main-content">
   <section class="hero" style="position: relative; overflow: hidden; min-height: 45vh;">
     <div class="hero-bg-stack" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; opacity: 0.6; filter: contrast(105%);">
-      <div style="position: absolute; inset: 0; clip-path: polygon(0% 0%, 100% 0%, 100% 35%, 0% 65%); overflow: hidden; ">
+      <div style="position: absolute; inset: 0; overflow: hidden; animation: slit-top 60s ease-in-out infinite;">
         <div class="hero-bg-row" style="position: absolute; top: 0; left: 0; height: 100%; display: flex; align-items: flex-start; will-change: transform; animation: hero-bg-scroll-right 40s linear infinite; animation-delay: -32s;">
           <video autoplay muted loop playsinline preload="auto" data-bg-group="0" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
           <video autoplay muted loop playsinline preload="auto" data-bg-group="1" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
@@ -228,7 +228,7 @@
           <video autoplay muted loop playsinline preload="auto" data-bg-group="9" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
         </div>
       </div>
-      <div style="position: absolute; inset: 0; clip-path: polygon(0% 65%, 100% 35%, 100% 100%, 0% 100%); overflow: hidden; ">
+      <div style="position: absolute; inset: 0; overflow: hidden; animation: slit-bot 60s ease-in-out infinite;">
         <div class="hero-bg-row" style="position: absolute; top: 0; left: 0; height: 100%; display: flex; align-items: flex-end; will-change: transform; animation: hero-bg-scroll-left 40s linear infinite; animation-delay: -32s;">
           <video autoplay muted loop playsinline preload="auto" data-bg-group="4" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
           <video autoplay muted loop playsinline preload="auto" data-bg-group="5" style="height:65%; width:auto; aspect-ratio: 16/9; flex-shrink:0;"></video>
@@ -252,8 +252,35 @@
         from { transform: translateX(0); }
         to   { transform: translateX(-50%); }
       }
+      /* Diagonal slit between top/bottom rows tilts back and forth over 24s */
+      @keyframes slit-top {
+        0%   { clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 60%); }
+        50%  { clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 40%); }
+        100% { clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 60%); }
+      }
+      @keyframes slit-bot {
+        0%   { clip-path: polygon(0% 60%, 100% 40%, 100% 100%, 0% 100%); }
+        50%  { clip-path: polygon(0% 40%, 100% 60%, 100% 100%, 0% 100%); }
+        100% { clip-path: polygon(0% 60%, 100% 40%, 100% 100%, 0% 100%); }
+      }
+      @property --lt { syntax: '<length>'; inherits: false; initial-value: 0vh; }
+      @property --lb { syntax: '<length>'; inherits: false; initial-value: 0vh; }
+      @property --rt { syntax: '<length>'; inherits: false; initial-value: 0vh; }
+      @property --rb { syntax: '<length>'; inherits: false; initial-value: 0vh; }
       .hero-bg-row video {
+        margin-right: -4vh;
         clip-path: polygon(var(--lt, 0vh) 0%, calc(100% - var(--rt, 0vh)) 0%, calc(100% - var(--rb, 0vh)) 100%, var(--lb, 0vh) 100%);
+        animation: l-slant 45s ease-in-out infinite, r-slant 45s ease-in-out infinite;
+      }
+      @keyframes l-slant {
+        0%   { --lt: 4vh; --lb: 0vh; }
+        50%  { --lt: 0vh; --lb: 4vh; }
+        100% { --lt: 4vh; --lb: 0vh; }
+      }
+      @keyframes r-slant {
+        0%   { --rt: 0vh; --rb: 4vh; }
+        50%  { --rt: 4vh; --rb: 0vh; }
+        100% { --rt: 0vh; --rb: 4vh; }
       }
       /* NVIDIA green palette overrides for template variables */
       :root {
@@ -343,32 +370,22 @@
         });
         groups.forEach(assignGroup);
 
-        // Random slanted boundaries between panes (mirrored across marquee duplicates)
-        // Each boundary has an amount (vh) and a direction (+/- = tilt right / tilt left)
+        // Per-boundary random animation phase. Each pane uses two animations
+        // (l-slant + r-slant); the left animation's delay matches the previous
+        // pane's right animation's delay (so the boundary between them shares
+        // a single timing). Mirrored across the marquee duplicate.
         document.querySelectorAll('.hero-bg-row').forEach(function (row) {
           var vids = Array.prototype.slice.call(row.querySelectorAll('video'));
           var n = vids.length;
           if (!n) return;
           var half = Math.floor(n / 2);
-          var bnd = [];
-          for (var i = 0; i < half; i++) {
-            bnd.push({ amt: 2 + Math.random() * 4, dir: Math.random() < 0.5 ? 1 : -1 });
-          }
-          var all = bnd.concat(bnd);
+          var boundaryDelays = [];
+          for (var i = 0; i < half; i++) boundaryDelays.push(-(Math.random() * 45));
+          var allDelays = boundaryDelays.concat(boundaryDelays);
           for (var i = 0; i < n; i++) {
-            var rb = all[i];                     // boundary to the right of pane i
-            var lb = all[(i - 1 + n) % n];       // boundary to the left of pane i
-            // For boundary with dir +: pane's right side has rt=0, rb=amt; next pane has lt=amt, lb=0
-            // For boundary with dir -: pane's right side has rt=amt, rb=0; next pane has lt=0, lb=amt
-            var lt = (lb.dir > 0) ? lb.amt : 0;
-            var lbX = (lb.dir > 0) ? 0 : lb.amt;
-            var rt = (rb.dir > 0) ? 0 : rb.amt;
-            var rbX = (rb.dir > 0) ? rb.amt : 0;
-            vids[i].style.setProperty('--lt', lt + 'vh');
-            vids[i].style.setProperty('--lb', lbX + 'vh');
-            vids[i].style.setProperty('--rt', rt + 'vh');
-            vids[i].style.setProperty('--rb', rbX + 'vh');
-            vids[i].style.marginRight = (-rb.amt) + 'vh';
+            var leftDelay = allDelays[i];
+            var rightDelay = allDelays[(i + 1) % n];
+            vids[i].style.animationDelay = leftDelay + 's, ' + rightDelay + 's';
           }
         });
       })();
