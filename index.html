@@ -255,26 +255,41 @@
       .hero-bg-row video {
         clip-path: polygon(var(--lt, 0vh) 0%, calc(100% - var(--rt, 0vh)) 0%, calc(100% - var(--rb, 0vh)) 100%, var(--lb, 0vh) 100%);
       }
-      @media (max-width: 768px) {
-        /* Highlight cards: stack vertically on narrow screens */
+      @media (max-width: 900px) {
+        /* Hide heavy bg video marquee on phones to save bandwidth */
+        .hero-bg-stack { display: none !important; }
+        /* Make hero shorter on phones */
+        section.hero { min-height: auto !important; padding: 1.5rem 0 !important; }
+        /* Highlight cards: stack vertically, full width, shrink text */
         .section-highlights {
           flex-wrap: wrap !important;
           flex-direction: column !important;
+          gap: 0.5rem !important;
         }
         .section-highlights > div {
-          width: 100%;
+          width: 100% !important;
+          min-width: 0 !important;
+          font-size: 0.95rem !important;
+          padding: 0.6rem 0.9rem !important;
         }
         /* Frosted title panel: tighter padding on phones */
-        .hero .hero-body > .container > .columns > .column.is-11 {
+        .hero-body .column.is-11 {
           padding: 1.25rem 1rem !important;
           border-radius: 12px !important;
+          background: rgba(255,255,255,0.85) !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
         }
+        /* Sections: tighter side padding */
+        section.section { padding: 2rem 0.75rem !important; }
+        .container.is-max-widescreen { padding: 0 0.5rem !important; }
+        .column.is-10 { width: 100% !important; flex: none !important; padding: 0 !important; }
         /* Buttons wrap with smaller gaps */
-        .publication-links { gap: 0.5rem; }
+        .publication-links { gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
         .publication-links .link-block { margin: 0.25rem; }
-        /* Carousel navigation closer to content */
+        /* Carousel navigation smaller */
         .slider-navigation-previous,
-        .slider-navigation-next { transform: scale(0.7); }
+        .slider-navigation-next { transform: scale(0.6); }
       }
       /* Section font-size bump */
       main section h2.title.is-3 { font-size: clamp(2rem, 3vw, 2.75rem) !important; }
