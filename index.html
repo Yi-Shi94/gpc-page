@@ -255,6 +255,8 @@
       .hero-bg-row video {
         clip-path: polygon(var(--lt, 0vh) 0%, calc(100% - var(--rt, 0vh)) 0%, calc(100% - var(--rb, 0vh)) 100%, var(--lb, 0vh) 100%);
       }
+      /* Override template's pink-red section-title underline to NVIDIA green */
+      .title.is-3::after { background: #76b900 !important; }
       @media (max-width: 900px) {
         /* Hide bandwidth-heavy method sections on phones */
         .mobile-hide { display: none !important; }
@@ -365,7 +367,7 @@
       <div class="container is-max-widescreen">
         <div class="columns is-centered">
           <div class="column is-11 has-text-centered" style="background: rgba(255, 255, 255, 0.25); -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%); border-radius: 18px; padding: 2.5rem 2rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); border: 1px solid rgba(255, 255, 255, 0.5);">
-            <h1 class="title is-1 publication-title" style="font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.15;"><span style="font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 0.04em; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #db2777 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: 0.05em;">GPC</span>: Large-Scale Generative Pretraining for Transferable Motor Control</h1>
+            <h1 class="title is-1 publication-title" style="font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.15;"><span style="font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 0.04em; color: #76b900; padding-right: 0.05em;">GPC</span>: Large-Scale Generative Pretraining for Transferable Motor Control</h1>
             <div class="publication-authors" style="font-size: clamp(1.3rem, 2.2vw, 1.75rem); line-height: 1.5;">
               <!-- TODO: Replace href="#" with each author's personal website when known -->
               <span class="author-block">
@@ -480,12 +482,12 @@
       <div class="column is-10">
         <h2 class="title is-3">Skill Quantization</h2>
         <div class="section-highlights" style="display: flex; gap: 0.75rem; flex-wrap: nowrap; justify-content: flex-start; margin: 0.5rem 0 1.5rem; text-align: left;">
-          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
-            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">1</span>
+          <div style="background: rgba(118, 185, 0, 0.10); border-left: 4px solid #76b900; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #76b900; font-size: 1.1em;">1</span>
             <span>Scales up to a <strong>600&nbsp;h</strong> dataset with <strong>99.98%</strong> success rate</span>
           </div>
-          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
-            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">2</span>
+          <div style="background: rgba(118, 185, 0, 0.10); border-left: 4px solid #76b900; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #76b900; font-size: 1.1em;">2</span>
             <span>Simple <strong>end-to-end</strong> training with PPO</span>
           </div>
         </div>
@@ -525,12 +527,12 @@
       <div class="column is-10">
         <h2 class="title is-3">Generative Controller</h2>
         <div class="section-highlights" style="display: flex; gap: 0.75rem; flex-wrap: nowrap; justify-content: flex-start; margin: 0.5rem 0 1.5rem; text-align: left;">
-          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
-            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">1</span>
+          <div style="background: rgba(118, 185, 0, 0.10); border-left: 4px solid #76b900; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #76b900; font-size: 1.1em;">1</span>
             <span><strong>Robust</strong> unconditional generation across <strong>diverse skills</strong></span>
           </div>
-          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
-            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">2</span>
+          <div style="background: rgba(118, 185, 0, 0.10); border-left: 4px solid #76b900; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #76b900; font-size: 1.1em;">2</span>
             <span><strong>Emergent human-like responses</strong> to external perturbations</span>
           </div>
         </div>
@@ -571,16 +573,16 @@
       <div class="column is-10">
         <h2 class="title is-3">Task Adaptation</h2>
         <div class="section-highlights" style="display: flex; gap: 0.75rem; flex-wrap: nowrap; justify-content: flex-start; margin: 0.5rem 0 1.5rem; text-align: left;">
-          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
-            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">1</span>
+          <div style="background: rgba(118, 185, 0, 0.10); border-left: 4px solid #76b900; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #76b900; font-size: 1.1em;">1</span>
             <span><strong>Lightweight adaptation</strong>, adding <strong>&lt;1%</strong> extra parameters</span>
           </div>
-          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
-            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">2</span>
+          <div style="background: rgba(118, 185, 0, 0.10); border-left: 4px solid #76b900; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #76b900; font-size: 1.1em;">2</span>
             <span>Leverages <strong>pretrained skills</strong> across versatile downstream tasks</span>
           </div>
-          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
-            <span style="font-weight: 700; color: #2563eb; font-size: 1.1em;">3</span>
+          <div style="background: rgba(118, 185, 0, 0.10); border-left: 4px solid #76b900; border-radius: 8px; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: clamp(1rem, 1.3vw, 1.2rem); flex: 1; min-width: 0;">
+            <span style="font-weight: 700; color: #76b900; font-size: 1.1em;">3</span>
             <span>Supports <strong>user-designated skills</strong> for task completion</span>
           </div>
         </div>
