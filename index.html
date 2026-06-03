@@ -255,8 +255,18 @@
       .hero-bg-row video {
         clip-path: polygon(var(--lt, 0vh) 0%, calc(100% - var(--rt, 0vh)) 0%, calc(100% - var(--rb, 0vh)) 100%, var(--lb, 0vh) 100%);
       }
-      /* Override template's pink-red section-title underline to NVIDIA green */
+      /* NVIDIA green palette overrides for template variables */
+      :root {
+        --primary-color: #76b900 !important;
+        --primary-hover: #5a8e00 !important;
+        --gradient-accent: #76b900 !important;
+        --gradient-primary: linear-gradient(135deg, #76b900 0%, #5a8e00 100%) !important;
+      }
       .title.is-3::after { background: #76b900 !important; }
+      .publication-authors a::after { background: #76b900 !important; }
+      .publication-authors a { color: #76b900 !important; }
+      .publication-authors a:hover { color: #5a8e00 !important; }
+      .button.is-dark:hover { background: #76b900 !important; border-color: #76b900 !important; color: #fff !important; }
       @media (max-width: 900px) {
         /* Hide bandwidth-heavy method sections on phones */
         .mobile-hide { display: none !important; }
@@ -366,7 +376,7 @@
     <div class="hero-body" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
       <div class="container is-max-widescreen">
         <div class="columns is-centered">
-          <div class="column is-11 has-text-centered" style="background: rgba(255, 255, 255, 0.25); -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%); border-radius: 18px; padding: 2.5rem 2rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); border: 1px solid rgba(255, 255, 255, 0.5);">
+          <div class="column is-11 has-text-centered" style="background: rgba(255, 255, 255, 0.55); -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%); border-radius: 18px; padding: 2.5rem 2rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); border: 1px solid rgba(255, 255, 255, 0.5);">
             <h1 class="title is-1 publication-title" style="font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.15;"><span style="font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 0.04em; color: #76b900; padding-right: 0.05em;">GPC</span>: Large-Scale Generative Pretraining for Transferable Motor Control</h1>
             <div class="publication-authors" style="font-size: clamp(1.3rem, 2.2vw, 1.75rem); line-height: 1.5;">
               <!-- TODO: Replace href="#" with each author's personal website when known -->
