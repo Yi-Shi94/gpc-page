@@ -256,6 +256,8 @@
         clip-path: polygon(var(--lt, 0vh) 0%, calc(100% - var(--rt, 0vh)) 0%, calc(100% - var(--rb, 0vh)) 100%, var(--lb, 0vh) 100%);
       }
       @media (max-width: 900px) {
+        /* Hide bandwidth-heavy method sections on phones */
+        .mobile-hide { display: none !important; }
         /* Hide heavy bg video marquee on phones to save bandwidth */
         .hero-bg-stack { display: none !important; }
         /* Make hero shorter on phones */
@@ -472,7 +474,7 @@
 <!-- End overview -->
 
 <!-- Skill Quantization -->
-<section class="section hero is-light">
+<section class="section hero is-light mobile-hide">
   <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
       <div class="column is-10">
@@ -517,7 +519,7 @@
 <!-- End skill quantization -->
 
 <!-- Generative Controller -->
-<section class="section">
+<section class="section mobile-hide">
   <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
       <div class="column is-10">
@@ -563,7 +565,7 @@
 <!-- End generative controller -->
 
 <!-- PEFT / CoLA -->
-<section class="section hero is-light">
+<section class="section hero is-light mobile-hide">
   <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
       <div class="column is-10">
