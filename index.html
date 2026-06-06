@@ -472,7 +472,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-10">
 
-          <div style="max-width: 570px; margin-left: auto; margin-right: auto;">
+          <div style="max-width: clamp(570px, 30vw, 900px); margin-left: auto; margin-right: auto;">
             <div class="publication-video">
               <iframe src="https://www.youtube.com/embed/3QibCkPAGj0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
@@ -495,7 +495,7 @@
         </video>
         <div class="content has-text-justified" style="margin-top: 1rem;">
           <p>
-            <strong>GPC</strong> is a framework for training generative controllers on large-scale motion datasets. The framework consists of three stages. In the first stage, <strong>Skill Quantization</strong>, we construct a discrete latent representation of skills using Finite Scalar Quantization (FSQ). The latent codes are optimized directly with end-to-end RL, providing a robust foundation for subsequent generative controller training and downstream task adaptation. In the second stage, <strong>Generative Controller</strong> Training, we train a generative controller that models the distribution of discrete skill tokens using a transformer decoder. Finally, we introduce CoLA, a parameter-efficient fine-tuning (<strong>PEFT</strong>) procedure that can adapt the pretrained generative controller to a wide range of downstream control tasks using only a small number of additional parameters, while preserving the diversity and naturalness of the pretrained controller.
+            <strong>GPC</strong> is a framework for training generative controllers on large-scale motion datasets. The framework consists of three stages. In the first stage, <strong>Skill Quantization</strong>, we construct a discrete latent representation of skills using Finite Scalar Quantization (FSQ). The latent codes are optimized directly with end-to-end RL, providing a robust representation for subsequent generative controller training and downstream task adaptation. In the second stage, <strong>Generative Controller</strong> Training, we train a generative controller that models the distribution of discrete skill tokens using a transformer decoder. Finally, we introduce CoLA, a parameter-efficient fine-tuning (<strong>PEFT</strong>) method that can adapt the pretrained generative controller to a wide range of downstream control tasks using only a small number of additional parameters, while preserving the diversity and naturalness of the pretrained controller.
           </p>
         </div>
       </div>
