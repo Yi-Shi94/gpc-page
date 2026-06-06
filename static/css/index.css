@@ -707,27 +707,26 @@ code {
   }
 }
 
-/* Laptop range (e.g. MacBook Air, ~1280-1710 logical px): the page is tuned
-   for large desktop monitors, so its rem/clamp-max sizes look oversized on a
-   smaller laptop viewport. Scale the rem base down here so everything shrinks
-   proportionally; large monitors (>1800px) are left untouched. */
-@media screen and (min-width: 1025px) and (max-width: 1800px) {
+/* Smaller monitors (laptops, 1080p/FHD externals): the page is tuned for large
+   desktop monitors, so its rem/clamp-max sizes and fixed ~1152px content
+   container fill most of a smaller screen and look oversized. Scale both the
+   rem base and the container width FLUIDLY with the viewport so the
+   column-to-viewport and text-to-column proportions match the desktop look at
+   any width. The clamp/max upper bounds return to the original 16px / 1152px on
+   large monitors, so big desktops are left untouched (no hard breakpoint). */
+@media screen and (min-width: 1025px) {
   html {
-    font-size: 13px;
+    font-size: clamp(11px, 0.62vw, 16px);
   }
   body {
     font-size: 1rem;
   }
-  /* The content container has a fixed ~1152px max-width, which fills most of a
-     laptop screen (vs. a comfortable centered band on a large monitor). Narrow
-     it so the column-to-viewport and text-to-column proportions match the
-     desktop look instead of appearing zoomed-in. */
   .container,
   .container.is-max-widescreen {
-    max-width: 900px;
+    max-width: clamp(720px, 45vw, 1152px);
   }
   .hero-body .column.is-11 {
-    padding: 2rem 1.75rem;
+    padding: clamp(1.5rem, 2vw, 2.5rem) clamp(1.25rem, 1.5vw, 2rem);
   }
 }
 
