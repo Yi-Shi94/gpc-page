@@ -716,14 +716,14 @@ code {
    large monitors, so big desktops are left untouched (no hard breakpoint). */
 @media screen and (min-width: 1025px) {
   html {
-    font-size: clamp(11px, 0.62vw, 16px);
+    font-size: clamp(12px, 0.68vw, 16px);
   }
   body {
     font-size: 1rem;
   }
   .container,
   .container.is-max-widescreen {
-    max-width: clamp(720px, 45vw, 1152px);
+    max-width: clamp(760px, 50vw, 1152px);
   }
   .hero-body .column.is-11 {
     padding: clamp(1.5rem, 2vw, 2.5rem) clamp(1.25rem, 1.5vw, 2rem);
