@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yi-shi94.github.io/gpc-page/sitemap.xml
