@@ -1,4 +1,5 @@
 *.gif
+!static/videos/hsi/parkour.gif
 static/videos/out.mp4
 static/videos/background*.mp4
 static/videos/skill_quant/*.mp4
