@@ -489,7 +489,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-10">
         <h2 class="title is-3">Overview</h2>
-        <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
+        <video class="mobile-hide" autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
           <source src="static/videos/overview.mp4" type="video/mp4">
         </video>
         <div class="content has-text-justified" style="margin-top: 1rem;">
@@ -519,7 +519,7 @@
             <span>Simple <strong>end-to-end</strong> training with PPO</span>
           </div>
         </div>
-        <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
+        <video class="mobile-hide" autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
           <source src="static/videos/skill_quant.mp4" type="video/mp4">
         </video>
         <div class="content has-text-justified" style="margin-top: 1rem;">
@@ -529,16 +529,16 @@
           </p>
         </div>
 
-        <h3 class="title is-4" style="margin-top: 2rem;">Results Reproduced by the FSQ Tracking Controller</h3>
-        <div id="skill-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+        <h3 class="title is-4 mobile-hide" style="margin-top: 2rem;">Results Reproduced by the FSQ Tracking Controller</h3>
+        <div id="skill-carousel" class="carousel results-carousel mobile-hide" style="margin-top: 0.5rem;">
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/acrobat.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/cartwheel.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/flip1.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/flip2.mp4" type="video/mp4"></video></div>
         </div>
 
-        <h3 class="title is-4" style="margin-top: 2rem;">Comparison with Other Methods</h3>
-        <div id="skill-compare-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+        <h3 class="title is-4 mobile-hide" style="margin-top: 2rem;">Comparison with Other Methods</h3>
+        <div id="skill-compare-carousel" class="carousel results-carousel mobile-hide" style="margin-top: 0.5rem;">
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/comp.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/skill_quant/_web/comp1.mp4" type="video/mp4"></video></div>
         </div>
@@ -564,7 +564,7 @@
             <span><strong>Emergent human-like responses</strong> to external perturbations</span>
           </div>
         </div>
-        <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
+        <video class="mobile-hide" autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
           <source src="static/videos/gen_controller.mp4" type="video/mp4">
         </video>
         <div class="content has-text-justified" style="margin-top: 1rem;">
@@ -573,14 +573,14 @@
           </p>
         </div>
 
-        <h3 class="title is-4" style="margin-top: 2rem;">Unconditional Sampling</h3>
-        <div id="uncond-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+        <h3 class="title is-4 mobile-hide" style="margin-top: 2rem;">Unconditional Sampling</h3>
+        <div id="uncond-carousel" class="carousel results-carousel mobile-hide" style="margin-top: 0.5rem;">
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller/_web/amass_1.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller/_web/bones_1.mp4" type="video/mp4"></video></div>
         </div>
 
-        <h3 class="title is-4" style="margin-top: 2rem;">Robustness and Recovery Behavior Under Perturbation</h3>
-        <div id="pert-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+        <h3 class="title is-4 mobile-hide" style="margin-top: 2rem;">Robustness and Recovery Behavior Under Perturbation</h3>
+        <div id="pert-carousel" class="carousel results-carousel mobile-hide" style="margin-top: 0.5rem;">
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller_pert/_web/amass_force_small.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller_pert/_web/amass_large.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/gen_controller_pert/_web/amass_small1.mp4" type="video/mp4"></video></div>
@@ -614,7 +614,7 @@
             <span>Supports <strong>user-designated skills</strong> for task completion</span>
           </div>
         </div>
-        <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
+        <video class="mobile-hide" autoplay muted loop playsinline preload="auto" style="width: 100%; display: block;">
           <source src="static/videos/peft.mp4" type="video/mp4">
         </video>
         <div class="content has-text-justified" style="margin-top: 1rem;">
@@ -626,8 +626,8 @@
             <li><strong>SFT+RLFT:</strong> When example motions are available and the user wants to leverage those specific skills, Supervised Fine-Tuning(SFT) can serve as an initial guide for stylization. This biases the model toward selecting task-appropriate, user-designated skills, preventing it from exploring from scratch or activating unwanted behaviors from its vast pretrained repertoire. The model can then be further refined through reinforcement learning fine-tuning (RLFT) to reliably compose and execute these skills for task completion. </li>
           </ol>
         </div>
-        <h3 class="title is-4" style="margin-top: 2rem;">RLFT-Only Adaptation</h3>
-        <div id="rlft-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+        <h3 class="title is-4 mobile-hide" style="margin-top: 2rem;">RLFT-Only Adaptation</h3>
+        <div id="rlft-carousel" class="carousel results-carousel mobile-hide" style="margin-top: 0.5rem;">
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/steering.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/target.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/traj.mp4" type="video/mp4"></video></div>
@@ -638,14 +638,14 @@
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft/_web/terrain_bar.mp4" type="video/mp4"></video></div>
         </div>
 
-        <h3 class="title is-4" style="margin-top: 2rem;">SFT + RLFT Adaptation (Stylization)</h3>
-        <div id="sft-rlft-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+        <h3 class="title is-4 mobile-hide" style="margin-top: 2rem;">SFT + RLFT Adaptation (Stylization)</h3>
+        <div id="sft-rlft-carousel" class="carousel results-carousel mobile-hide" style="margin-top: 0.5rem;">
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/sft%2Brlft/_web/task_target_sft_crouch.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/sft%2Brlft/_web/traj2.mp4" type="video/mp4"></video></div>
         </div>
 
-        <h3 class="title is-4" style="margin-top: 2rem;">Perserved Robustness and Recovery Skills</h3>
-        <div id="rlft-force-carousel" class="carousel results-carousel" style="margin-top: 0.5rem;">
+        <h3 class="title is-4 mobile-hide" style="margin-top: 2rem;">Perserved Robustness and Recovery Skills</h3>
+        <div id="rlft-force-carousel" class="carousel results-carousel mobile-hide" style="margin-top: 0.5rem;">
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft_force/_web/traj_force.mp4" type="video/mp4"></video></div>
           <div class="item"><video autoplay muted playsinline preload="metadata" style="width:100%; display:block;"><source src="static/videos/peft/rlft_force/_web/traj_force.mp4" type="video/mp4"></video></div>
         </div>
@@ -669,7 +669,7 @@
             🎮 We have an <strong>real-time interactive demo</strong> showcased at <strong>SIGGRAPH 2026</strong> — see you there!
           </p>
         </div>
-        <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block; border-radius: 8px;">
+        <video class="mobile-hide" autoplay muted loop playsinline preload="auto" style="width: 100%; display: block; border-radius: 8px;">
           <source src="static/videos/hsi/parkour_web.mp4?v=2" type="video/mp4">
         </video>
       </div>
