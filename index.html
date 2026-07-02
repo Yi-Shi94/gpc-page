@@ -296,7 +296,7 @@
       .publication-authors a:hover { color: #5a8e00 !important; }
       .button.is-dark:hover { background: #76b900 !important; border-color: #76b900 !important; color: #fff !important; }
       @media (max-width: 900px) {
-        /* Hide bandwidth-heavy method sections on phones */
+        /* Hide demo video + demo bulletin on phones to save bandwidth */
         .mobile-hide { display: none !important; }
         /* Hide heavy bg video marquee on phones to save bandwidth */
         .hero-bg-stack { display: none !important; }
@@ -464,8 +464,8 @@
 </section>
 
 
-<!-- Youtube video -->
-<section class="hero is-small is-light">
+<!-- Youtube video (demo reel) -->
+<section class="hero is-small is-light mobile-hide">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered has-text-centered">
@@ -665,7 +665,7 @@
           <p>
             We demonstrate GPC on a <strong>Human-Scene Interaction (HSI)</strong> task, where a character must navigate environments and interact naturally with terrain. GPC is able to compose learned motor skills to handle diverse parkour-style scenarios without skill-specific training from scratch.
           </p>
-          <p style="text-align: center; font-size: 1.1em;">
+          <p class="mobile-hide" style="text-align: center; font-size: 1.1em;">
             🎮 We have an <strong>real-time interactive demo</strong> showcased at <strong>SIGGRAPH 2026</strong> — see you there!
           </p>
         </div>
